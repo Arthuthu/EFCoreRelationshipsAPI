@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EFCoreRelationships
+namespace EFCoreRelationships.Models
 {
     public class WeaponModel
     {
@@ -8,7 +8,7 @@ namespace EFCoreRelationships
         public string Name { get; set; } = string.Empty;
         public int Damage { get; set; } = 10;
         [JsonIgnore]
-        public Character Character { get; set; }
+        public CharacterModel Character { get; set; }
         public int CharacterId { get; set; }
     }
 }

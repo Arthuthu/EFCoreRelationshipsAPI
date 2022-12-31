@@ -1,4 +1,4 @@
-﻿namespace EFCoreRelationships
+﻿namespace EFCoreRelationships.Dtos
 {
     public class AddWeaponDto
     {

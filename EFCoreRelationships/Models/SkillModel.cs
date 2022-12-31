@@ -1,13 +1,13 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EFCoreRelationships
+namespace EFCoreRelationships.Models
 {
-    public class Skill
+    public class SkillModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int Damage { get; set; }
         [JsonIgnore]
-        public List<Character> Characters { get; set; }
+        public List<CharacterModel> Characters { get; set; }
     }
 }

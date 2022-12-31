@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EFCoreRelationships
+namespace EFCoreRelationships.Models
 {
-    public class Character
+    public class CharacterModel
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -11,7 +11,7 @@ namespace EFCoreRelationships
         public UserModel User { get; set; }
         public int UserId { get; set; }
         public WeaponModel Weapon { get; set; }
-        public List<Skill> Skills { get; set; }
+        public List<SkillModel> Skills { get; set; }
 
     }
 }

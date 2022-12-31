@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EFCoreRelationships.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreRelationships.Data
 {
@@ -10,9 +11,9 @@ namespace EFCoreRelationships.Data
         }
 
         public DbSet<UserModel> Users { get; set; }
-        public DbSet<Character> Characters { get; set; }
+        public DbSet<CharacterModel> Characters { get; set; }
         public DbSet<WeaponModel> Weapons { get; set; }
-        public DbSet<Skill> Skills { get; set; }
+        public DbSet<SkillModel> Skills { get; set; }
 
 
     }

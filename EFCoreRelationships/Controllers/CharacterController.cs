@@ -1,6 +1,8 @@
 ﻿global using EFCoreRelationships.Data;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
+using EFCoreRelationships.Dtos;
+using EFCoreRelationships.Models;
 
 namespace EFCoreRelationships.Controllers
 {
@@ -16,7 +18,7 @@ namespace EFCoreRelationships.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Character>>> Get(int userId)
+        public async Task<ActionResult<List<CharacterModel>>> Get(int userId)
         {
 
             var characters = await _context.Characters.
@@ -34,7 +36,7 @@ namespace EFCoreRelationships.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Character>>> PostCharacter(CreateCharacterDto request)
+        public async Task<ActionResult<List<CharacterModel>>> PostCharacter(CreateCharacterDto request)
         {
             var user = await _context.Users.FindAsync(request.UserId);
 
@@ -43,7 +45,7 @@ namespace EFCoreRelationships.Controllers
                 return BadRequest("User not found");
             }
 
-            var newCharacter = new Character 
+            var newCharacter = new CharacterModel 
             { 
                 Name = request.Name,
                 RpgClass = request.RpgClass,
@@ -58,7 +60,7 @@ namespace EFCoreRelationships.Controllers
         }
 
         [HttpPost("weapon")]
-        public async Task<ActionResult<Character>> PostWeapon(AddWeaponDto request)
+        public async Task<ActionResult<CharacterModel>> PostWeapon(AddWeaponDto request)
         {
             var character = await _context.Characters.FindAsync(request.CharacterId);
 
@@ -82,7 +84,7 @@ namespace EFCoreRelationships.Controllers
         }
 
         [HttpPost("skill")]
-        public async Task<ActionResult<Character>> PostSkill(CharacterSkillDto request)
+        public async Task<ActionResult<CharacterModel>> PostSkill(CharacterSkillDto request)
         {
             var character = await _context.Characters.Where(x => x.Id == request.CharacterId)
                 .Include(x => x.Skills)
