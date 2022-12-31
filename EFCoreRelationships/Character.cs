@@ -11,6 +11,7 @@ namespace EFCoreRelationships
         public UserModel User { get; set; }
         public int UserId { get; set; }
         public WeaponModel Weapon { get; set; }
+        public List<Skill> Skills { get; set; }
 
     }
 }
